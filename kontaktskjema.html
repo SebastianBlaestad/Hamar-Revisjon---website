@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontaktskjema - Hamar Revisjon AS</title>
+    <meta name="description" content="Vil du komme i kontakt med oss? Kontakt Hamar Revisjon AS for profesjonelle 
+    revisjonstjenester.">
+    <meta name="apple-mobile-web-app-title" content="Hamar Revisjon AS">
+    <link rel="canonical" href="https://www.hamarrevisjon.no/">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+      <!-- Standard Favicon -->
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <!-- PNG Favicons -->
+  <link rel="icon" href="favicon_io/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="favicon_io/favicon-16x16.png" sizes="16x16" type="image/png">
+
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" href="favicon_io/apple-touch-icon.png">
+
+  <link rel="icon" href="favicon_io/web-app-manifest-192x192.png" sizes="192x192" type="image/png">
+  <link rel="icon" href="favicon_io/web-app-manifest-512x512.png" sizes="512x512" type="image/png">
+
+  <link rel="icon" type="image/png" href="favicon_io/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon_io/favicon.svg" />
+  <!-- Web Manifest -->
+  <link rel="manifest" href="favicon_io/site.webmanifest">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Hamar Revisjon AS",
+      "url": "https://www.hamarrevisjon.no",
+      "logo": "https://www.hamarrevisjon.no/favicon_io/web-app-manifest-192x192.png"
+    }
+    </script>
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar__container">
+  
+          <div class= "logo-background"> 
+          <a href="/" id="navbar__logo">Hamar Revisjon AS</a>
+          </div>
+  
+          <div class="navbar__toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+          <ul class="navbar__menu">
+            <li class="navbar__item">
+              <a href="/" class="navbar__links">Hjem</a>
+            </li>
+            <li class="navbar__item">
+              <a href="/#våretjenester" class="navbar__links">Våre tjenester</a>
+            </li>
+            <li class="navbar__item">
+              <a href="om_oss.html" class="navbar__links">Om oss</a>
+            </li>
+            <li class="navbar__item">
+              <a href="kontaktskjema.html" class="navbar__links">Kontakt oss</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    <div class="contact">
+    <div class="info__text">
+      <h1>Vil du komme i kontakt med oss?</h1>
+      <p>Er du interessert i våre tjenester, trenger hjelp fra kvalifiserte revisorer eller bare ønsker å
+        komme i kontakt med oss? Vennligst fyll ut alle feltene, og vi vil kontakte deg.
+      </p>
+    </div>
+    
+    <form class="contact-form" method="POST" novalidate>
+        <label for="name">Navn*</label>
+        <input type="text" id="name" name="name" placeholder="Ditt navn" required><br><br>
+
+        <label for="email">E-post*</label>
+        <input type="email" id="email" name="email" placeholder="Din e-post" required><br><br>
+
+        <label for="message">Melding*</label>
+        <textarea id="message" name="message" placeholder="Din melding" rows="5" required></textarea><br><br>
+
+        
+        <button type="submit">Send</button>
+
+        <div class="error-messages"></div>
+
+        <div class="g-recaptcha" data-sitekey="6LeRW7YqAAAAAJz7wTeUBLmbI4b9wsqkrfcBQeKo"></div>
+        <span id="captcha-error" style="color: red; display: none;">Vennligst fullfør CAPTCHA.</span>
+<!--min nøkkel 6LeRW7YqAAAAAJz7wTeUBLmbI4b9wsqkrfcBQeKo --> 
+<!-- test nøkkel: 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI-->
+
+    </form>
+    </div>
+    <div id="map" style="width: 100%; height: 400px;"></div>
+
+    <!-- Footer section -->
+    <footer class="footer">
+      <div class="footer__content">
+        <div class="footer__info">
+          <a href="/"><h3>Hamar Revisjon AS</h3></a>
+          <p>Østregate 23 <br> 2317 Hamar</p>
+        </div>
+        <div class="footer__info">
+          <h3>Kontakt oss <br></h3>
+          <a href="mailto:elin@hamarrevisjon.no">elin@hamarrevisjon.no</a>
+        </div>
+        <div class="footer__bottom-bar">
+          <a href="Personvernerklæring.pdf">Personvernerklæring</a>
+        </div>
+      </div>
+     </footer>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src = 'app.js'></script>
+</body>
+
+</html>

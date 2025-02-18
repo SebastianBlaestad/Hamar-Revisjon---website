@@ -1,0 +1,34 @@
+# Enable the rewrite engine
+RewriteEngine On
+
+# Ensure the server recognizes the .htaccess file
+Options +FollowSymLinks
+
+# Remove .html extensions from URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [NC,L]
+
+# Redirect to homepage without showing "index.html"
+RewriteCond %{THE_REQUEST} /index\.html [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+
+# Redirect "om_oss.html" and "kontaktskjema.html" to clean URLs
+RewriteRule ^om_oss$ om_oss.html [NC,L]
+RewriteRule ^kontaktskjema$ kontaktskjema.html [NC,L]
+RewriteCond %{THE_REQUEST} /om_oss\.html [NC]
+RewriteRule ^om_oss\.html$ /om_oss [R=301,L]
+RewriteCond %{THE_REQUEST} /kontaktskjema\.html [NC]
+RewriteRule ^kontaktskjema\.html$ /kontaktskjema [R=301,L]
+
+# Redirect back to homepage without showing "index.html" from any page
+RewriteCond %{THE_REQUEST} /index\.html [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+
+# Force HTTPS and www (if needed)
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ https://www.hamarrevisjon.no/$1 [R=301,L]
+
+AddType application/manifest+json .webmanifest
+AddType image/png .png
