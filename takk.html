@@ -1,17 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Takk-melding</title>
-    <link rel="stylesheet" href="styles.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Takk for din melding – Hamar Revisjon AS</title>
+  <meta name="robots" content="noindex">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Standard Favicon -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" href="favicon_io/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="favicon_io/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="favicon_io/apple-touch-icon.png">
 </head>
 <body>
-    <div class="takk__melding">
-        <h1>Takk for din melding!</h1>
-        <p>Vi har mottatt meldingen din og vil kontakte deg så snart som mulig.</p>
-        <a href="/">Tilbake til hjemmesiden</a>
-    </div>  
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar__container">
+      <div class="logo-background">
+        <a href="/" id="navbar__logo">Hamar Revisjon AS</a>
+      </div>
+
+      <button class="navbar__toggle" id="mobile-menu" aria-label="Åpne meny" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <ul class="navbar__menu">
+        <li class="navbar__item"><a href="/" class="navbar__links">Hjem</a></li>
+        <li class="navbar__item"><a href="/#våretjenester" class="navbar__links">Våre tjenester</a></li>
+        <li class="navbar__item"><a href="om_oss.html" class="navbar__links">Om oss</a></li>
+        <li class="navbar__item"><a href="kontaktskjema.html" class="navbar__links navbar__links--cta">Kontakt oss</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="takk__melding">
+    <div class="takk__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M8.5 12.5l2.5 2.5 5-5"/>
+      </svg>
+    </div>
+    <h1>Takk for din melding!</h1>
+    <p>Vi har mottatt meldingen din og kontakter deg så snart som mulig.</p>
+    <a href="/" class="btn btn--primary">Tilbake til hjemmesiden</a>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__content">
+      <div class="footer__info">
+        <a href="/"><h3>Hamar Revisjon AS</h3></a>
+        <p>Østregate 23<br>2317 Hamar</p>
+      </div>
+      <div class="footer__info">
+        <h3>Kontakt oss</h3>
+        <p><a href="mailto:elin@hamarrevisjon.no">elin@hamarrevisjon.no</a></p>
+      </div>
+      <div class="footer__info">
+        <h3>Snarveier</h3>
+        <ul class="footer__links">
+          <li><a href="/">Hjem</a></li>
+          <li><a href="/#våretjenester">Våre tjenester</a></li>
+          <li><a href="om_oss.html">Om oss</a></li>
+          <li><a href="kontaktskjema.html">Kontakt oss</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom-bar">
+      <span>© 2026 Hamar Revisjon AS</span>
+      <a href="Personvernerklæring.pdf">Personvernerklæring</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>

@@ -1,127 +1,190 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontaktskjema - Hamar Revisjon AS</title>
-    <meta name="description" content="Vil du komme i kontakt med oss? Kontakt Hamar Revisjon AS for profesjonelle 
-    revisjonstjenester.">
-    <meta name="apple-mobile-web-app-title" content="Hamar Revisjon AS">
-    <link rel="canonical" href="https://www.hamarrevisjon.no/">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt oss – Hamar Revisjon AS</title>
+  <meta name="description" content="Vil du komme i kontakt med oss? Kontakt Hamar Revisjon AS for profesjonelle
+  revisjonstjenester.">
+  <link rel="canonical" href="https://www.hamarrevisjon.no/kontaktskjema">
+  <meta name="robots" content="index, follow">
+  <meta name="apple-mobile-web-app-title" content="Hamar Revisjon AS">
 
-      <!-- Standard Favicon -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kontakt oss – Hamar Revisjon AS">
+  <meta property="og:description" content="Ta kontakt med Hamar Revisjon AS – vi kommer raskt tilbake til deg.">
+  <meta property="og:url" content="https://www.hamarrevisjon.no/kontaktskjema">
+  <meta property="og:image" content="https://www.hamarrevisjon.no/images/hero.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <!-- Standard Favicon -->
   <link rel="shortcut icon" href="/favicon.ico">
 
   <!-- PNG Favicons -->
   <link rel="icon" href="favicon_io/favicon-32x32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="favicon_io/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="icon" type="image/png" href="favicon_io/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" href="favicon_io/web-app-manifest-192x192.png" sizes="192x192" type="image/png">
+  <link rel="icon" href="favicon_io/web-app-manifest-512x512.png" sizes="512x512" type="image/png">
+  <link rel="icon" type="image/svg+xml" href="favicon_io/favicon.svg">
 
   <!-- Apple Touch Icon -->
   <link rel="apple-touch-icon" href="favicon_io/apple-touch-icon.png">
 
-  <link rel="icon" href="favicon_io/web-app-manifest-192x192.png" sizes="192x192" type="image/png">
-  <link rel="icon" href="favicon_io/web-app-manifest-512x512.png" sizes="512x512" type="image/png">
-
-  <link rel="icon" type="image/png" href="favicon_io/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="favicon_io/favicon.svg" />
   <!-- Web Manifest -->
   <link rel="manifest" href="favicon_io/site.webmanifest">
 
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "AccountingService",
       "name": "Hamar Revisjon AS",
       "url": "https://www.hamarrevisjon.no",
-      "logo": "https://www.hamarrevisjon.no/favicon_io/web-app-manifest-192x192.png"
+      "logo": "https://www.hamarrevisjon.no/favicon_io/web-app-manifest-192x192.png",
+      "email": "elin@hamarrevisjon.no",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Østregate 23",
+        "postalCode": "2317",
+        "addressLocality": "Hamar",
+        "addressCountry": "NO"
+      }
     }
-    </script>
-    
+  </script>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navbar__container">
-  
-          <div class= "logo-background"> 
-          <a href="/" id="navbar__logo">Hamar Revisjon AS</a>
-          </div>
-  
-          <div class="navbar__toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </div>
-          <ul class="navbar__menu">
-            <li class="navbar__item">
-              <a href="/" class="navbar__links">Hjem</a>
-            </li>
-            <li class="navbar__item">
-              <a href="/#våretjenester" class="navbar__links">Våre tjenester</a>
-            </li>
-            <li class="navbar__item">
-              <a href="om_oss.html" class="navbar__links">Om oss</a>
-            </li>
-            <li class="navbar__item">
-              <a href="kontaktskjema.html" class="navbar__links">Kontakt oss</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
 
-    <div class="contact">
-    <div class="info__text">
-      <h1>Vil du komme i kontakt med oss?</h1>
-      <p>Er du interessert i våre tjenester, trenger hjelp fra kvalifiserte revisorer eller bare ønsker å
-        komme i kontakt med oss? Vennligst fyll ut alle feltene, og vi vil kontakte deg.
-      </p>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar__container">
+      <div class="logo-background">
+        <a href="/" id="navbar__logo">Hamar Revisjon AS</a>
+      </div>
+
+      <button class="navbar__toggle" id="mobile-menu" aria-label="Åpne meny" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <ul class="navbar__menu">
+        <li class="navbar__item"><a href="/" class="navbar__links">Hjem</a></li>
+        <li class="navbar__item"><a href="/#våretjenester" class="navbar__links">Våre tjenester</a></li>
+        <li class="navbar__item"><a href="om_oss.html" class="navbar__links">Om oss</a></li>
+        <li class="navbar__item"><a href="kontaktskjema.html" class="navbar__links navbar__links--cta">Kontakt oss</a></li>
+      </ul>
     </div>
-    
-    <form class="contact-form" method="POST" novalidate>
-        <label for="name">Navn*</label>
-        <input type="text" id="name" name="name" placeholder="Ditt navn" required><br><br>
+  </nav>
 
-        <label for="email">E-post*</label>
-        <input type="email" id="email" name="email" placeholder="Din e-post" required><br><br>
+  <!-- Contact -->
+  <section class="contact">
+    <div class="container contact__inner">
+      <div class="contact__info reveal">
+        <span class="eyebrow">Kontakt oss</span>
+        <h1>Vil du komme i kontakt med oss?</h1>
+        <p>Er du interessert i tjenestene våre, trenger hjelp fra kvalifiserte
+          revisorer eller har du et spørsmål? Fyll ut skjemaet, så kontakter
+          vi deg så snart som mulig.</p>
 
-        <label for="message">Melding*</label>
-        <textarea id="message" name="message" placeholder="Din melding" rows="5" required></textarea><br><br>
+        <div class="contact__details">
+          <div class="contact__detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/>
+              <circle cx="12" cy="10" r="2.5"/>
+            </svg>
+            <div>
+              <strong>Besøksadresse</strong>
+              <span>Østregate 23, 2317 Hamar</span>
+            </div>
+          </div>
 
-        
-        <button type="submit">Send</button>
+          <div class="contact__detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="M3 7l9 6 9-6"/>
+            </svg>
+            <div>
+              <strong>E-post</strong>
+              <a href="mailto:elin@hamarrevisjon.no">elin@hamarrevisjon.no</a>
+            </div>
+          </div>
 
-        <div class="error-messages"></div>
-
-        <div class="g-recaptcha" data-sitekey="6LeRW7YqAAAAAJz7wTeUBLmbI4b9wsqkrfcBQeKo"></div>
-        <span id="captcha-error" style="color: red; display: none;">Vennligst fullfør CAPTCHA.</span>
-<!--min nøkkel 6LeRW7YqAAAAAJz7wTeUBLmbI4b9wsqkrfcBQeKo --> 
-<!-- test nøkkel: 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI-->
-
-    </form>
-    </div>
-    <div id="map" style="width: 100%; height: 400px;"></div>
-
-    <!-- Footer section -->
-    <footer class="footer">
-      <div class="footer__content">
-        <div class="footer__info">
-          <a href="/"><h3>Hamar Revisjon AS</h3></a>
-          <p>Østregate 23 <br> 2317 Hamar</p>
-        </div>
-        <div class="footer__info">
-          <h3>Kontakt oss <br></h3>
-          <a href="mailto:elin@hamarrevisjon.no">elin@hamarrevisjon.no</a>
-        </div>
-        <div class="footer__bottom-bar">
-          <a href="Personvernerklæring.pdf">Personvernerklæring</a>
+          <div class="contact__detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 7v5l3 2"/>
+            </svg>
+            <div>
+              <strong>Svartid</strong>
+              <span>Vi svarer normalt innen kort tid på hverdager.</span>
+            </div>
+          </div>
         </div>
       </div>
-     </footer>
 
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src = 'app.js'></script>
+      <form class="contact-form reveal" method="POST" novalidate style="--d:.1s">
+        <label for="name">Navn*</label>
+        <input type="text" id="name" name="name" placeholder="Ditt navn" autocomplete="name" required>
+
+        <label for="email">E-post*</label>
+        <input type="email" id="email" name="email" placeholder="Din e-post" autocomplete="email" required>
+
+        <label for="message">Melding*</label>
+        <textarea id="message" name="message" placeholder="Hva kan vi hjelpe deg med?" rows="5" required></textarea>
+
+        <div class="g-recaptcha" data-sitekey="6LeRW7YqAAAAAJz7wTeUBLmbI4b9wsqkrfcBQeKo"></div>
+        <span id="captcha-error">Vennligst fullfør CAPTCHA.</span>
+
+        <button type="submit" class="btn btn--primary">Send melding</button>
+
+        <div class="error-messages"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section class="map-section">
+    <div class="container">
+      <div id="map" aria-label="Kart som viser hvor Hamar Revisjon AS holder til"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__content">
+      <div class="footer__info">
+        <a href="/"><h3>Hamar Revisjon AS</h3></a>
+        <p>Østregate 23<br>2317 Hamar</p>
+      </div>
+      <div class="footer__info">
+        <h3>Kontakt oss</h3>
+        <p><a href="mailto:elin@hamarrevisjon.no">elin@hamarrevisjon.no</a></p>
+      </div>
+      <div class="footer__info">
+        <h3>Snarveier</h3>
+        <ul class="footer__links">
+          <li><a href="/">Hjem</a></li>
+          <li><a href="/#våretjenester">Våre tjenester</a></li>
+          <li><a href="om_oss.html">Om oss</a></li>
+          <li><a href="kontaktskjema.html">Kontakt oss</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom-bar">
+      <span>© 2026 Hamar Revisjon AS</span>
+      <a href="Personvernerklæring.pdf">Personvernerklæring</a>
+    </div>
+  </footer>
+
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
 </body>
-
 </html>

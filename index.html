@@ -2,199 +2,290 @@
 <html lang="no">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Hamar Revisjon AS tilbyr profesjonelle revisjonstjenester, årsoppgjør, 
-  regnskapsrapportering og rådgivning i Hamar. Kontakt oss for trygg økonomisk veiledning.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamar Revisjon AS – Revisjon, årsoppgjør og rådgivning i Hamar</title>
+  <meta name="description" content="Hamar Revisjon AS tilbyr profesjonelle revisjonstjenester, årsoppgjør,
+  regnskapsrapportering og rådgivning i Hamar. Kontakt oss for trygg økonomisk veiledning.">
   <link rel="canonical" href="https://www.hamarrevisjon.no/">
   <meta name="robots" content="index, follow">
   <meta name="apple-mobile-web-app-title" content="Hamar Revisjon AS">
-  <title>Hamar Revisjon AS - Din Partner for Revisjonstjenester i Hamar</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hamar Revisjon AS – Trygghet og presisjon i hver revisjon">
+  <meta property="og:description" content="Din lokale partner innen revisjon, årsoppgjør og økonomisk rådgivning i Hamar.">
+  <meta property="og:url" content="https://www.hamarrevisjon.no/">
+  <meta property="og:image" content="https://www.hamarrevisjon.no/images/hero.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
 
-    <!-- Standard Favicon -->
+  <!-- Standard Favicon -->
   <link rel="shortcut icon" href="/favicon.ico">
 
   <!-- PNG Favicons -->
   <link rel="icon" href="favicon_io/favicon-32x32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="favicon_io/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="icon" type="image/png" href="favicon_io/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" href="favicon_io/web-app-manifest-192x192.png" sizes="192x192" type="image/png">
+  <link rel="icon" href="favicon_io/web-app-manifest-512x512.png" sizes="512x512" type="image/png">
+  <link rel="icon" type="image/svg+xml" href="favicon_io/favicon.svg">
 
   <!-- Apple Touch Icon -->
   <link rel="apple-touch-icon" href="favicon_io/apple-touch-icon.png">
 
-  <!-- Android Chrome Icons -->
-  <link rel="icon" href="favicon_io/web-app-manifest-192x192.png" sizes="192x192" type="image/png">
-  <link rel="icon" href="favicon_io/web-app-manifest-512x512.png" sizes="512x512" type="image/png">
-
-  <link rel="icon" type="image/png" href="favicon_io/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="favicon_io/favicon.svg" />
   <!-- Web Manifest -->
   <link rel="manifest" href="favicon_io/site.webmanifest">
 
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "AccountingService",
       "name": "Hamar Revisjon AS",
       "url": "https://www.hamarrevisjon.no",
-      "logo": "https://www.hamarrevisjon.no/favicon_io/web-app-manifest-192x192.png"
+      "logo": "https://www.hamarrevisjon.no/favicon_io/web-app-manifest-192x192.png",
+      "email": "elin@hamarrevisjon.no",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Østregate 23",
+        "postalCode": "2317",
+        "addressLocality": "Hamar",
+        "addressCountry": "NO"
+      },
+      "areaServed": "Hamar",
+      "memberOf": {
+        "@type": "Organization",
+        "name": "Revisorforeningen",
+        "url": "https://revisorforeningen.no"
+      }
     }
-    </script>
-    
+  </script>
 </head>
-  <body>
-    <nav class="navbar">
-      <div class="navbar__container">
+<body>
 
-        <div class= "logo-background"> 
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar__container">
+      <div class="logo-background">
         <a href="/" id="navbar__logo">Hamar Revisjon AS</a>
-        </div>
+      </div>
 
-        <div class="navbar__toggle" id="mobile-menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-        <ul class="navbar__menu">
-          <li class="navbar__item">
-            <a href="/" class="navbar__links">Hjem</a>
-          </li>
-          <li class="navbar__item">
-            <a href="#våretjenester" class="navbar__links">Våre tjenester</a>
-          </li>
-          <li class="navbar__item">
-            <a href="om_oss.html" class="navbar__links">Om oss</a>
-          </li>
-          <li class="navbar__item">
-            <a href="kontaktskjema.html" class="navbar__links">Kontakt oss</a>
-          </li>
+      <button class="navbar__toggle" id="mobile-menu" aria-label="Åpne meny" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <ul class="navbar__menu">
+        <li class="navbar__item"><a href="/" class="navbar__links">Hjem</a></li>
+        <li class="navbar__item"><a href="#våretjenester" class="navbar__links">Våre tjenester</a></li>
+        <li class="navbar__item"><a href="om_oss.html" class="navbar__links">Om oss</a></li>
+        <li class="navbar__item"><a href="kontaktskjema.html" class="navbar__links navbar__links--cta">Kontakt oss</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero-front">
+    <div class="hero-front__content">
+      <span class="eyebrow">Revisjon og rådgivning i Hamar</span>
+      <h1>Trygghet og presisjon i hver revisjon</h1>
+      <p>Hamar Revisjon AS er din lokale partner innen revisjon, årsoppgjør og
+        økonomisk rådgivning – med presisjon og pålitelighet i alt vi gjør.</p>
+      <div class="buttons">
+        <a href="#våretjenester" class="btn btn--primary">Se våre tjenester</a>
+        <a href="kontaktskjema.html" class="btn btn--ghost">Kontakt oss</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Intro band -->
+  <section class="intro-band">
+    <div class="container reveal">
+      <p>Velkommen til Hamar Revisjon AS – din trygge partner innen revisjon,
+        rådgivning og økonomiske tjenester. Vi leverer presisjon og pålitelighet
+        i alt vi gjør, slik at du kan konsentrere deg om å drive virksomheten din.</p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="våretjenester">
+    <div class="container">
+      <div class="reveal">
+        <span class="eyebrow">Hva vi tilbyr</span>
+        <h2 class="section__title">Tjenester tilpasset din virksomhet</h2>
+        <p class="section__lead">Som en erfaren aktør i bransjen hjelper vi små og
+          mellomstore bedrifter med hele det økonomiske bildet – fra lovpålagt
+          revisjon til strategisk rådgivning.</p>
+      </div>
+
+      <div class="services__grid">
+        <article class="service-card reveal">
+          <div class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/>
+              <path d="M9 11.5l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3>Revisjonstjenester</h3>
+          <p>Lovpålagt revisjon og attestasjonsoppgaver utført med fokus på
+            nøyaktighet, integritet og pålitelighet.</p>
+        </article>
+
+        <article class="service-card reveal" style="--d:.05s">
+          <div class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 3h6l4 4v13a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/>
+              <path d="M14 3v4h4"/>
+              <path d="M10 12h5M10 16h5"/>
+            </svg>
+          </div>
+          <h3>Årsoppgjør og regnskapsrapportering</h3>
+          <p>Utarbeidelse av årsregnskap, noter og skattepapirer – alltid i tråd
+            med gjeldende lover og regler.</p>
+        </article>
+
+        <article class="service-card reveal" style="--d:.1s">
+          <div class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-9l-4.5 3.5V17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/>
+              <path d="M8 9.5h8M8 12.5h5"/>
+            </svg>
+          </div>
+          <h3>Rådgivning</h3>
+          <p>Veiledning innen økonomistyring, skatteplanlegging, selskapsstruktur
+            og strategisk utvikling.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="8" r="3"/>
+              <path d="M4 20c0-3 2.2-5 5-5s5 2 5 5"/>
+              <circle cx="17" cy="9" r="2.4"/>
+              <path d="M16.5 15.1c2.5.2 4 2 4 4.9"/>
+            </svg>
+          </div>
+          <h3>Arv og generasjonsskifte</h3>
+          <p>Planlegging og gjennomføring av arveoppgjør og generasjonsskifter,
+            med fokus på økonomisk, juridisk og skattemessig optimalisering.</p>
+        </article>
+
+        <article class="service-card reveal" style="--d:.05s">
+          <div class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2.5c3 2 5 6 5 9.5l-2.5 3h-5L7 12c0-3.5 2-7.5 5-9.5z"/>
+              <circle cx="12" cy="9" r="1.6"/>
+              <path d="M9 16.5L7.5 21M15 16.5L16.5 21M12 17.5V21"/>
+            </svg>
+          </div>
+          <h3>Oppstartshjelp for nye virksomheter</h3>
+          <p>Råd og bistand ved etablering av nye selskaper – valg av
+            selskapsform, registrering og økonomisk planlegging.</p>
+        </article>
+
+        <article class="service-card reveal" style="--d:.1s">
+          <div class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16v4H4z"/>
+              <path d="M6 8v11a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8"/>
+              <path d="M10 12h4"/>
+            </svg>
+          </div>
+          <h3>Avvikling av selskaper</h3>
+          <p>Hjelp med planlegging og gjennomføring av avvikling – avslutning av
+            regnskap, rapportering og juridiske formaliteter.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 4h6v3H9z"/>
+              <path d="M15 4h2a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h2"/>
+              <path d="M9.5 13.5l2 2 3.5-3.5"/>
+            </svg>
+          </div>
+          <h3>Forenklet revisjon</h3>
+          <p>Tilpassede tjenester for mindre virksomheter uten revisjonsplikt som
+            ønsker en profesjonell gjennomgang av regnskapene.</p>
+        </article>
+
+        <article class="service-card service-card--cta reveal" style="--d:.05s">
+          <h3>Usikker på hva du trenger?</h3>
+          <p>Hver virksomhet er unik – vi skreddersyr tjenestene etter dine behov.
+            Ta kontakt for en uforpliktende prat.</p>
+          <a href="kontaktskjema.html" class="btn">
+            Kontakt oss
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </article>
+      </div>
+
+      <p class="services__note reveal">Med vår kompetanse og sans for detaljer sørger
+        vi for at du kan føle deg trygg på alle økonomiske aspekter ved virksomheten din.</p>
+    </div>
+  </section>
+
+  <!-- Member of Revisorforeningen -->
+  <section class="section member">
+    <div class="container member__inner">
+      <div class="member__text reveal">
+        <span class="eyebrow">Kvalitet du kan stole på</span>
+        <h2>Medlem av Revisorforeningen</h2>
+        <p>Som medlem av Revisorforeningen drar vi nytte av et sterkt faglig
+          nettverk og alltid oppdatert kunnskap innen revisjon, regnskap og
+          skatteforhold. Det sikrer at vi leverer tjenester av høy kvalitet –
+          i tråd med gjeldende lover og regler.</p>
+      </div>
+      <div class="member__logo reveal" style="--d:.1s">
+        <a href="https://revisorforeningen.no">
+          <img src="images/medlemrevisorforeningen.png" alt="Medlem av Revisorforeningen" loading="lazy">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band" id="kontakt">
+    <div class="container reveal">
+      <h2>Ønsker du å komme i kontakt?</h2>
+      <p>Ta kontakt i dag, så kommer vi raskt tilbake til deg.</p>
+      <a href="kontaktskjema.html" class="btn btn--primary">Kontakt oss</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__content">
+      <div class="footer__info">
+        <a href="/"><h3>Hamar Revisjon AS</h3></a>
+        <p>Østregate 23<br>2317 Hamar</p>
+      </div>
+      <div class="footer__info">
+        <h3>Kontakt oss</h3>
+        <p><a href="mailto:elin@hamarrevisjon.no">elin@hamarrevisjon.no</a></p>
+      </div>
+      <div class="footer__info">
+        <h3>Snarveier</h3>
+        <ul class="footer__links">
+          <li><a href="/">Hjem</a></li>
+          <li><a href="/#våretjenester">Våre tjenester</a></li>
+          <li><a href="om_oss.html">Om oss</a></li>
+          <li><a href="kontaktskjema.html">Kontakt oss</a></li>
         </ul>
       </div>
-    </nav>
-    
-    <!--Hero section -->
-    <div class="main">
-      <div class="main__container">
-        <div class="main__content">
-          <h2>Trygghet og presisjon i hver revisjon</h2>
-          <div class="buttons">
-            <button class ="våretje__btn"> <a href="#våretjenester">Våre tjenester</a>
-          </button>
-            <button class="Omoss__btn"><a href="om_oss.html">Om oss</a>
-          </button>
-          </div>
-        </div>
-      </div>
     </div>
-
-    <!-- Services section-->
-    <div class="velkommen">
-      <p>Velkommen til Hamar Revisjon AS – din trygge partner 
-        innen revisjon, rådgivning og økonomiske tjenester. 
-        Vi leverer presisjon og pålitelighet i alle våre 
-        tjenester for å sikre suksess for din virksomhet.</p>
-      <div class=""></div>
+    <div class="footer__bottom-bar">
+      <span>© 2026 Hamar Revisjon AS</span>
+      <a href="Personvernerklæring.pdf">Personvernerklæring</a>
     </div>
+  </footer>
 
-    <div class="tilbyr" id="våretjenester">
-      <h3>Hva vi tilbyr?</h3>
-      <p>Som en erfaren aktør i bransjen hjelper vi små og 
-        mellomstore bedrifter med:
-      </p>
-      <ul>
-        <li> <p>Revisjonstjenester</p>
-          Utførelse av lovpålagt revisjon og attestasjonsoppgaver 
-          med fokus på nøyaktighet, integritet og pålitelighet.</li>
-
-        <li> <p>Årsoppgjør og regnskapsrapportering</p>
-          Bistand med utarbeidelse av årsregnskap, noter og 
-          skattepapirer, i tråd med gjeldende lover og regler.</li>
-
-        <li> <p>Rådgivning</p>
-          Veiledning innen økonomistyring, skatteplanlegging, 
-          selskapsstruktur og strategisk utvikling.</li>
-
-        <li> <p>Rådgivning ved arv og generasjonsskifter</p>
-          Bistand i planlegging og gjennomføring av arveoppgjør og
-          generasjonsskifter, med fokus på økonomisk, juridisk og 
-          skatteoptimalisering.</li>
-
-        <li><p>Oppstartshjelp for nye virksomheter</p>
-          Råd og bistand ved etablering av nye selskaper, 
-          herunder valg av selskapsform, registrering og 
-          økonomisk planlegging.</li>
-
-        <li><p>Rådgivning ved avvikling av selskaper</p>
-          Hjelp med planlegging og gjennomføring av selskapets 
-          avvikling, inkludert avslutning av regnskap, 
-          rapportering og juridiske formaliteter.</li>
-
-        <li><p>Forenklet revisjon (revisjonsfritak)</p>
-        Tilpassede tjenester for mindre virksomheter som ikke er 
-        underlagt revisjonsplikt, men som ønsker en profesjonell 
-        gjennomgang av regnskapene.</li>
-
-    </ul>
-    <p>
-        Vi forstår at hver virksomhet er unik, og derfor skreddersyr vi våre tjenester for å møte dine spesifikke behov. 
-        Med vår kompetanse og fokus på detaljer, sørger vi for at du kan føle deg trygg på alle økonomiske aspekter.
-    </p>
-    </div>
-
-    <div class="kontakt-oss" id="kontakt">
-    <h2>Ønsker du å kontakte oss?</h2>
-    <p>Ta kontakt her, så kommer vi raskt tilbake til deg.
-    </p>
-    <a href="kontaktskjema.html">Kontakt oss</a>
-    </div>
-
-    <div class="medlem-revisor">
-      <div class="info">
-        <h2>Hamar Revisjon AS er medlem av Revisorforeningen</h2>
-        <p>Som medlem av Revisorforeningen drar vi nytte av et 
-          sterkt faglig nettverk og tilgang til oppdatert 
-          informasjon innen revisjon, regnskap og skatteforhold. 
-          Dette sikrer at vi kan levere tjenester av høy kvalitet 
-          og følge gjeldende lover og regler.
-        </p>
-      </div>
-        <div class="img">
-        <a href="https://revisorforeningen.no"> 
-          <img src="images/medlemrevisorforeningen.png" alt="Revisorforeningen-logo"> 
-        </a>
-        </div>
-    </div>
-
-    <!-- Footer section -->
-     <footer class="footer">
-      <div class="footer__content">
-        <div class="footer__info">
-          <a href="/"><h3>Hamar Revisjon AS</h3></a>
-          <p>Østregate 23 <br> 2317 Hamar</p>
-        </div>
-        <div class="footer__info">
-          <h3>Kontakt oss <br></h3>
-          <a href="mailto:elin@hamarrevisjon.no">elin@hamarrevisjon.no</a>
-        </div>
-        <div class="footer__bottom-bar">
-          <a href="Personvernerklæring.pdf">Personvernerklæring</a>
-        </div>
-      </div>
-     </footer>
-    
-     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const hash = window.location.hash;
-        if (hash) {
-          const targetElement = document.querySelector(hash);
-          if (targetElement) {
-            // Smooth scroll to the section
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
-      });
-    </script>
-    
-  <script src = 'app.js'></script>
-  </body>
+  <script src="app.js"></script>
+</body>
 </html>
-

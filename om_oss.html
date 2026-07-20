@@ -1,123 +1,199 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Om oss - Hamar Revisjon AS</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="canonical" href="https://www.hamarrevisjon.no/">
-    <meta name="description" content="Lær mer om Hamar Revisjon AS, vår historie, og hvordan vi har hjulpet bedrifter 
-    i Hamar med revisjonstjenester siden 1985.">
-    <meta name="apple-mobile-web-app-title" content="Hamar Revisjon AS">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Om oss – Hamar Revisjon AS</title>
+  <meta name="description" content="Lær mer om Hamar Revisjon AS, vår historie, og hvordan vi har hjulpet bedrifter
+  i Hamar med revisjonstjenester siden 1985.">
+  <link rel="canonical" href="https://www.hamarrevisjon.no/om_oss">
+  <meta name="robots" content="index, follow">
+  <meta name="apple-mobile-web-app-title" content="Hamar Revisjon AS">
 
-      <!-- Standard Favicon -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Om oss – Hamar Revisjon AS">
+  <meta property="og:description" content="Et lokalt revisjonskontor i hjertet av Hamar – med historie tilbake til 1985.">
+  <meta property="og:url" content="https://www.hamarrevisjon.no/om_oss">
+  <meta property="og:image" content="https://www.hamarrevisjon.no/images/domkirken.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Standard Favicon -->
   <link rel="shortcut icon" href="/favicon.ico">
 
   <!-- PNG Favicons -->
   <link rel="icon" href="favicon_io/favicon-32x32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="favicon_io/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="icon" type="image/png" href="favicon_io/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" href="favicon_io/web-app-manifest-192x192.png" sizes="192x192" type="image/png">
+  <link rel="icon" href="favicon_io/web-app-manifest-512x512.png" sizes="512x512" type="image/png">
+  <link rel="icon" type="image/svg+xml" href="favicon_io/favicon.svg">
 
   <!-- Apple Touch Icon -->
   <link rel="apple-touch-icon" href="favicon_io/apple-touch-icon.png">
 
-  
-  <link rel="icon" href="favicon_io/web-app-manifest-192x192.png" sizes="192x192" type="image/png">
-  <link rel="icon" href="favicon_io/web-app-manifest-512x512.png" sizes="512x512" type="image/png">
-
-  <link rel="icon" type="image/png" href="favicon_io/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="favicon_io/favicon.svg" />
   <!-- Web Manifest -->
   <link rel="manifest" href="favicon_io/site.webmanifest">
 
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "AccountingService",
       "name": "Hamar Revisjon AS",
       "url": "https://www.hamarrevisjon.no",
-      "logo": "https://www.hamarrevisjon.no/favicon_io/web-app-manifest-192x192.png"
+      "logo": "https://www.hamarrevisjon.no/favicon_io/web-app-manifest-192x192.png",
+      "email": "elin@hamarrevisjon.no",
+      "foundingDate": "1985",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Østregate 23",
+        "postalCode": "2317",
+        "addressLocality": "Hamar",
+        "addressCountry": "NO"
+      }
     }
-    </script>
-    
+  </script>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navbar__container">
-  
-          <div class= "logo-background"> 
-          <a href="/" id="navbar__logo">Hamar Revisjon AS</a>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar__container">
+      <div class="logo-background">
+        <a href="/" id="navbar__logo">Hamar Revisjon AS</a>
+      </div>
+
+      <button class="navbar__toggle" id="mobile-menu" aria-label="Åpne meny" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <ul class="navbar__menu">
+        <li class="navbar__item"><a href="/" class="navbar__links">Hjem</a></li>
+        <li class="navbar__item"><a href="/#våretjenester" class="navbar__links">Våre tjenester</a></li>
+        <li class="navbar__item"><a href="om_oss.html" class="navbar__links">Om oss</a></li>
+        <li class="navbar__item"><a href="kontaktskjema.html" class="navbar__links navbar__links--cta">Kontakt oss</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page hero -->
+  <header class="page-hero page-hero--img">
+    <div>
+      <span class="eyebrow">Om oss</span>
+      <h1>Et lokalt revisjonskontor med lang historie</h1>
+      <p>Vi er dedikert til å levere revisjonstjenester med høy kvalitet
+        og integritet – siden 1985.</p>
+    </div>
+  </header>
+
+  <!-- Story -->
+  <section class="section">
+    <div class="container about-story__inner">
+      <div class="about-story__text reveal">
+        <span class="eyebrow">Hvem er vi?</span>
+        <h2 class="section__title">Din pålitelige partner i hjertet av Hamar</h2>
+        <p>Hamar Revisjon AS er et lite, lokalt revisjonskontor med base i
+          hjertet av Hamar. Vår historie startet i 1985, da Anders Lund
+          grunnla Lunds Revisjonsbyrå. Gjennom årene har vi bygget opp en
+          solid tradisjon for kvalitet og personlig oppfølging.</p>
+        <p>I dag videreføres denne arven av Elin Zeitz Schou Lund, som har
+          jobbet med revisjon og rådgivning siden 2000. Vi er stolte av å
+          tilby profesjonelle revisjonstjenester med en nær og tillitsfull
+          tilnærming til kundene våre.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section section--tint">
+    <div class="container center">
+      <div class="reveal">
+        <span class="eyebrow">Våre verdier</span>
+        <h2 class="section__title">Dette kjennetegner oss</h2>
+      </div>
+
+      <div class="values__grid">
+        <div class="value-card reveal">
+          <div class="value-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="9" r="5"/>
+              <path d="M9 13.5L8 21l4-2 4 2-1-7.5"/>
+            </svg>
           </div>
-  
-          <div class="navbar__toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </div>
-          <ul class="navbar__menu">
-            <li class="navbar__item">
-              <a href="/" class="navbar__links">Hjem</a>
-            </li>
-            <li class="navbar__item">
-              <a href="/#våretjenester" class="navbar__links">Våre tjenester</a>
-            </li>
-            <li class="navbar__item">
-              <a href="om_oss.html" class="navbar__links">Om oss</a>
-            </li>
-            <li class="navbar__item">
-              <a href="kontaktskjema.html" class="navbar__links">Kontakt oss</a>
-            </li>
-          </ul>
+          <h3>Kvalitet</h3>
+          <p>Nøyaktighet og integritet i hvert eneste oppdrag – i tråd med
+            gjeldende lover og regler.</p>
         </div>
-      </nav>
 
-    <!--Hero-->
-    <section class="hero">
-        <div class="hero__container">
-        <p>VI ER DEDIKERT TIL Å LEVERE REVISJONSTJENESTER 
-            MED HØY KVALITET OG INTEGRITET</p>
+        <div class="value-card reveal" style="--d:.05s">
+          <div class="value-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/>
+            </svg>
+          </div>
+          <h3>Personlig oppfølging</h3>
+          <p>En nær og tillitsfull tilnærming – du snakker alltid med noen som
+            kjenner din virksomhet.</p>
         </div>
-    </section>
 
-    <!--Introduksjon-->
-
-    <section class="intro">
-        <h2>Hvem er vi?</h2>
-        <p>Hamar Revisjon AS har i mange år vært en pålitelig
-             partner for små og mellomstore bedrifter.</p>
-    </section>
-
-    <!--Historie-->
-    <section class="historie">
-        <h3>Vår historie</h3>
-        <p>Vi er et lite, lokalt revisjonskontor med base i hjertet av Hamar. Vår historie startet i 1985, da Anders Lund 
-          grunnla Lunds Revisjonsbyrå. Gjennom årene har vi bygget opp en solid tradisjon for kvalitet og personlig oppfølging. 
-          I dag videreføres denne arven av Elin Zeitz Schou Lund, som har jobbet med revisjon og rådgivning siden 2000. Vi er 
-          stolte av å tilby profesjonelle revisjonstjenester med en nær og tillitsfull tilnærming til våre kunder..</p>
-    </section>
-
-    <section class="cta">
-        <h2>Klar for å samarbeide?</h2>
-        <a href="kontaktskjema.html">Kontakt oss idag</a>
-    </section>
-
-
-       <!-- Footer section -->
-     <footer class="footer">
-        <div class="footer__content">
-          <div class="footer__info">
-            <a href="/"><h3>Hamar Revisjon AS</h3></a>
-            <p>Østregate 23 <br> 2317 Hamar</p>
+        <div class="value-card reveal" style="--d:.1s">
+          <div class="value-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/>
+              <circle cx="12" cy="10" r="2.5"/>
+            </svg>
           </div>
-          <div class="footer__info">
-            <h3>Kontakt oss <br></h3>
-            <a href="mailto:elin@hamarrevisjon.no">elin@hamarrevisjon.no</a>
-          </div>
-          <div class="footer__bottom-bar">
-            <a href="Personvernerklæring.pdf">Personvernerklæring</a>
-          </div>
+          <h3>Lokal forankring</h3>
+          <p>Med base i hjertet av Hamar kjenner vi det lokale næringslivet –
+            og er alltid i nærheten.</p>
         </div>
-       </footer>
+      </div>
+    </div>
+  </section>
 
-       <script src = 'app.js'></script>
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="container reveal">
+      <h2>Klar for å samarbeide?</h2>
+      <p>Vi hører gjerne fra deg – ta kontakt for en uforpliktende prat.</p>
+      <a href="kontaktskjema.html" class="btn btn--primary">Kontakt oss i dag</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__content">
+      <div class="footer__info">
+        <a href="/"><h3>Hamar Revisjon AS</h3></a>
+        <p>Østregate 23<br>2317 Hamar</p>
+      </div>
+      <div class="footer__info">
+        <h3>Kontakt oss</h3>
+        <p><a href="mailto:elin@hamarrevisjon.no">elin@hamarrevisjon.no</a></p>
+      </div>
+      <div class="footer__info">
+        <h3>Snarveier</h3>
+        <ul class="footer__links">
+          <li><a href="/">Hjem</a></li>
+          <li><a href="/#våretjenester">Våre tjenester</a></li>
+          <li><a href="om_oss.html">Om oss</a></li>
+          <li><a href="kontaktskjema.html">Kontakt oss</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom-bar">
+      <span>© 2026 Hamar Revisjon AS</span>
+      <a href="Personvernerklæring.pdf">Personvernerklæring</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
