@@ -5,6 +5,11 @@ ini_set('display_errors', 0); // Disable displaying errors
 ini_set('log_errors', 1); // Log errors to a file
 ini_set('error_log', dirname(__FILE__) . '/error_log.txt'); // Logs errors to a file
 
+// The server has no date.timezone set and falls back to UTC. Without this, a
+// submission at 01:30 Norwegian summer time is stamped with the previous date
+// in henvendelser.txt, which the twelve-month pruning then reads.
+date_default_timezone_set('Europe/Oslo');
+
 // Read configuration. Tries, in order: server environment variables,
 // config.php, then .env. getenv() alone reads none of the files.
 function env($key) {

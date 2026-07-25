@@ -19,6 +19,11 @@
  * stille, slik at cron ikke sender e-post uten grunn.
  */
 
+// Serveren har ingen date.timezone satt, og faller da tilbake på UTC med en
+// PHP-advarsel. Advarselen ville blitt sendt som e-post fra cron hver måned, og
+// UTC ligger en til to timer bak norsk tid.
+date_default_timezone_set('Europe/Oslo');
+
 if (php_sapi_name() !== 'cli') {
     header('HTTP/1.1 403 Forbidden');
     echo "Dette skriptet kan bare kjøres fra kommandolinjen.\n";
