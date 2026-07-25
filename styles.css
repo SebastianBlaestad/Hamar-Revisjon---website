@@ -846,6 +846,161 @@ a {
   margin-bottom: 16px;
 }
 
+/* ---------- reCAPTCHA consent ---------- */
+
+/* app.js styrer synlighet med hidden-attributtet. Denne regelen sikrer at det
+   virker uansett hvilken display en klasse måtte få senere. */
+[hidden] {
+  display: none !important;
+}
+
+.consent {
+  margin-bottom: 22px;
+  padding: 18px 20px;
+  background: var(--blue-50);
+  border: 1px solid var(--blue-200);
+  border-radius: var(--radius-sm);
+}
+
+.consent__title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.consent__text {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.consent__text a {
+  color: var(--blue-700);
+  text-decoration: underline;
+}
+
+/* Godta og Avvis skal være identiske: samme størrelse, farge og plassering.
+   Ingen av dem skal framheves framfor den andre. */
+.consent__actions {
+  display: flex;
+  gap: 12px;
+}
+
+.consent__btn {
+  flex: 1 1 0;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 11px 16px;
+  color: var(--blue-700);
+  background: var(--surface);
+  border: 1px solid var(--blue-600);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.consent__btn:hover {
+  background: var(--blue-100);
+}
+
+.consent__btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(56, 105, 159, 0.28);
+}
+
+.consent__error {
+  font-size: 0.9rem;
+  color: #a13030;
+  margin-bottom: 16px;
+}
+
+.consent-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.consent-status__link {
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--blue-700);
+  background: none;
+  border: 0;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.contact-form button[type="submit"]:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Erstatter skjemaet når samtykket er avvist. Samme kortutseende som skjemaet,
+   slik at den står der skjemaet sto og ikke leses som en varsling. */
+.consent-declined {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 38px 34px;
+  box-shadow: var(--shadow-md);
+}
+
+.consent-declined h2 {
+  font-size: 1.3rem;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.consent-declined p {
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.consent-declined a {
+  color: var(--blue-700);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.consent-declined .btn {
+  width: 100%;
+  margin-top: 6px;
+}
+
+/* Angre-lenke i bunnteksten, på alle sider */
+.footer__consent {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.footer__consent:hover {
+  opacity: 1;
+}
+
+.footer__consent-note:not(:empty) {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
 @media (max-width: 900px) {
   .contact__inner {
     grid-template-columns: 1fr;

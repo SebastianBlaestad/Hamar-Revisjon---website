@@ -139,13 +139,48 @@
         <label for="message">Melding*</label>
         <textarea id="message" name="message" placeholder="Hva kan vi hjelpe deg med?" rows="5" required></textarea>
 
-        <div class="g-recaptcha" data-sitekey="6LeRW7YqAAAAAJz7wTeUBLmbI4b9wsqkrfcBQeKo"></div>
+        <!-- Samtykke til reCAPTCHA. Scriptet lastes først når Godta trykkes,
+             og sitekey settes fra app.js ved eksplisitt rendering. -->
+        <div class="consent" id="consent" hidden>
+          <p class="consent__title">Robotsjekk før du kan sende</p>
+          <p class="consent__text">
+            For å hindre søppelpost bruker vi Google reCAPTCHA. Godtar du, mottar
+            Google IP-adressen din og opplysninger om nettleseren din, og
+            opplysningene kan bli overført til land utenfor EØS. Les mer i vår
+            <a href="Personvernerklæring.pdf">personvernerklæring</a>.
+          </p>
+          <div class="consent__actions">
+            <button type="button" class="consent__btn" id="consent-accept">Godta</button>
+            <button type="button" class="consent__btn" id="consent-decline">Avvis</button>
+          </div>
+        </div>
+
+        <p class="consent-status" id="consent-status" hidden>
+          Google reCAPTCHA er aktivert.
+          <button type="button" class="consent-status__link" id="consent-change">Endre valg</button>
+        </p>
+
+        <div id="recaptcha-widget" hidden></div>
         <span id="captcha-error">Vennligst fullfør CAPTCHA.</span>
 
         <button type="submit" class="btn btn--primary">Send melding</button>
 
         <div class="error-messages"></div>
       </form>
+
+      <!-- Vises i stedet for skjemaet når samtykket er avvist. Skjemaet skjules,
+           ikke fjernes, så en utfylt melding er der om noen ombestemmer seg. -->
+      <div class="consent-declined" id="consent-declined" hidden>
+        <h2>Kontaktskjemaet krever reCAPTCHA</h2>
+        <p>Du har avvist Google reCAPTCHA. Vi bruker den for å hindre søppelpost,
+          og uten den kan vi ikke ta imot skjemaet.</p>
+        <p>Send oss gjerne en e-post i stedet:<br>
+          <a id="consent-mailto" data-email="elin@hamarrevisjon.no"
+             href="mailto:elin@hamarrevisjon.no">elin@hamarrevisjon.no</a></p>
+        <button type="button" class="btn btn--primary" id="consent-reconsider">
+          Godta reCAPTCHA og bruk skjemaet
+        </button>
+      </div>
     </div>
   </section>
 
@@ -180,10 +215,12 @@
     <div class="footer__bottom-bar">
       <span>© 2026 Hamar Revisjon AS</span>
       <a href="Personvernerklæring.pdf">Personvernerklæring</a>
+      <button type="button" class="footer__consent" id="consent-manage">Personvernvalg</button>
+      <span class="footer__consent-note" id="consent-manage-note" role="status" aria-live="polite"></span>
     </div>
   </footer>
 
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <!-- reCAPTCHA lastes ikke her. app.js injiserer det først etter samtykke. -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="app.js"></script>
 </body>
