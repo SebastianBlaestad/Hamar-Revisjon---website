@@ -156,11 +156,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Keep a copy outside the webroot before sending, so a submission is never
     // lost if delivery fails. Contains personal data - must not be web-readable.
+    // keepalive.php prunes entries older than twelve months and takes the same
+    // lock, so LOCK_EX here keeps a submission from being lost mid-prune.
     $archivePath = dirname(dirname(__FILE__)) . '/henvendelser.txt';
     $archive = str_repeat('-', 60) . "\n"
         . date('Y-m-d H:i:s') . "\n"
         . "Navn: $name\nE-post: $email\n\n$message\n";
-    @file_put_contents($archivePath, $archive, FILE_APPEND);
+    @file_put_contents($archivePath, $archive, FILE_APPEND | LOCK_EX);
 
     // Send via Brevo's HTTP API. mail() cannot be used: this server is not an
     // authorised sender for hamarrevisjon.no, and the domain's DMARC policy is
