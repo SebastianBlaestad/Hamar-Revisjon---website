@@ -74,6 +74,8 @@ const RECAPTCHA_SITE_KEY = '6LeRW7YqAAAAAJz7wTeUBLmbI4b9wsqkrfcBQeKo';
 
 let recaptchaWidgetId = null;
 let recaptchaLoading = false;
+let recaptchaTimeout = null;
+const RECAPTCHA_TIMEOUT_MS = 12000;
 
 /* Gir 'granted', 'denied' eller null. Alt som er eldre enn 12 måneder, eller
    som ikke kan tolkes, regnes som ingen valg — aldri som en standardverdi. */
@@ -125,12 +127,20 @@ function clearConsent() {
 }
 
 /* Fjerner det vi kan nå. Cookies satt på google.com tilhører et annet origin og
-   kan ikke slettes herfra — bare nettleseren eller Google kan det. Vi hindrer at
-   scriptet lastes igjen, fjerner rammene det har lagt inn, og rydder alt på vårt
-   eget domene. */
+   kan ikke slettes herfra — bare nettleseren eller Google kan det. Vi fjerner
+   widgeten, rammene og script-tagen, og rydder alt på vårt eget domene.
+
+   Vi sletter bevisst IKKE window.grecaptcha eller window.___grecaptcha_cfg.
+   Google legger igjen ___grecaptcha_cfg, og den overlever at grecaptcha slettes.
+   Injiseres api.js på nytt etterpå, ser den at globalen finnes, antar at alt er
+   initialisert, og kaller aldri onload-callbacken — widgeten ble da aldri bygget
+   og sendeknappen forble låst for godt. Vi beholder derfor objektet i minnet og
+   bygger widgeten på nytt direkte. Scriptet lastes fortsatt ikke ved neste
+   sidelast, som er det ekomloven § 3-15 handler om. */
 function removeRecaptcha() {
   recaptchaWidgetId = null;
   recaptchaLoading = false;
+  clearRecaptchaTimeout();
 
   document.querySelectorAll('script[data-recaptcha]').forEach(function (el) {
     if (el.parentNode) el.parentNode.removeChild(el);
@@ -142,12 +152,6 @@ function removeRecaptcha() {
   const slot = document.querySelector('#recaptcha-widget');
   if (slot) slot.innerHTML = '';
 
-  try {
-    delete window.grecaptcha;
-  } catch (e) {
-    window.grecaptcha = undefined;
-  }
-
   // Rydder cookies på vårt eget domene som ser ut som reCAPTCHAs
   document.cookie.split(';').forEach(function (part) {
     const name = part.split('=')[0].trim();
@@ -157,15 +161,46 @@ function removeRecaptcha() {
   });
 }
 
+function clearRecaptchaTimeout() {
+  if (recaptchaTimeout !== null) {
+    window.clearTimeout(recaptchaTimeout);
+    recaptchaTimeout = null;
+  }
+}
+
+/* Sikkerhetsnett. Blir widgeten aldri bygget — blokkert av en utvidelse, nede
+   hos Google, hva som helst — skal ingen sitte igjen med et låst skjema og
+   ingen forklaring. Da får de en vei videre i stedet. */
+function showRecaptchaFallback() {
+  recaptchaLoading = false;
+
+  const slot = document.querySelector('#recaptcha-widget');
+  if (!slot || recaptchaWidgetId !== null) return;
+
+  const declinedLink = document.querySelector('#consent-mailto');
+  const to = declinedLink ? declinedLink.getAttribute('data-email') : '';
+
+  slot.innerHTML = '<p class="consent__error">Robotsjekken kunne ikke lastes. ' +
+    'Last siden på nytt' +
+    (to ? ', eller send oss en e-post på <a href="mailto:' + to + '">' + to + '</a>' : '') +
+    '.</p>';
+}
+
 function renderRecaptcha() {
   recaptchaLoading = false;
+  clearRecaptchaTimeout();
 
   const slot = document.querySelector('#recaptcha-widget');
   if (!slot || recaptchaWidgetId !== null) return;
   if (!window.grecaptcha || !window.grecaptcha.render) return;
 
+  // Rendres i en fersk div hver gang. Google knytter intern tilstand til
+  // elementet, og nekter å rendre to ganger i samme element.
   slot.innerHTML = '';
-  recaptchaWidgetId = window.grecaptcha.render(slot, {
+  const target = document.createElement('div');
+  slot.appendChild(target);
+
+  recaptchaWidgetId = window.grecaptcha.render(target, {
     sitekey: RECAPTCHA_SITE_KEY,
   });
 
@@ -198,15 +233,14 @@ function loadRecaptcha() {
   script.async = true;
   script.defer = true;
   script.setAttribute('data-recaptcha', '');
-  script.onerror = function () {
-    recaptchaLoading = false;
-    const slot = document.querySelector('#recaptcha-widget');
-    if (slot) {
-      slot.innerHTML = '<p class="consent__error">Robotsjekken kunne ikke lastes. ' +
-        'Last siden på nytt, eller send oss en e-post.</p>';
-    }
-  };
+  script.onerror = showRecaptchaFallback;
   document.body.appendChild(script);
+
+  // Fanger også tilfellet der scriptet laster, men onload aldri kalles
+  clearRecaptchaTimeout();
+  recaptchaTimeout = window.setTimeout(function () {
+    if (recaptchaWidgetId === null) showRecaptchaFallback();
+  }, RECAPTCHA_TIMEOUT_MS);
 }
 
 /* Forhåndsutfyller e-postlenken med det besøkende allerede har skrevet, slik at
