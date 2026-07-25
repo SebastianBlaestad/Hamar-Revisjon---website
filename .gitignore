@@ -1,3 +1,4 @@
 .env
 error_log.txt
 response_log.txt
+config.php

@@ -1,5 +1,7 @@
-# Block web access to secrets and log files
-<FilesMatch "^(\.env.*|error_log\.txt|response_log\.txt)$">
+# Block web access to secrets, backups of them, and log files.
+# Editor/FTP backups like config.php.bak or config.php~ would otherwise be
+# served as plain text, exposing the keys.
+<FilesMatch "^(\.env.*|config\.php\.\w+|.*\.(bak|old|orig|save|swp|tmp)|.*~|error_log\.txt|response_log\.txt)$">
   <IfModule mod_authz_core.c>
     Require all denied
   </IfModule>

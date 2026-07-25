@@ -5,25 +5,59 @@ ini_set('display_errors', 0); // Disable displaying errors
 ini_set('log_errors', 1); // Log errors to a file
 ini_set('error_log', __DIR__ . '/error_log.txt'); // Logs errors to a file
 
-// Load configuration from .env (getenv() alone does not read this file)
+// Read configuration. Tries, in order: server environment variables,
+// config.php, then .env. getenv() alone reads none of the files.
 function env($key) {
-    $value = getenv($key);
-    if ($value !== false && $value !== '') {
-        return $value;
-    }
+    static $config = null;
 
-    static $envFile = null;
-    if ($envFile === null) {
-        $path = __DIR__ . '/.env';
-        $envFile = is_readable($path)
-            ? parse_ini_file($path, false, INI_SCANNER_RAW)
-            : array();
-        if ($envFile === false) {
-            $envFile = array();
+    if ($config === null) {
+        $config = array();
+
+        // Prefer config.php outside the webroot — no HTTP request can reach it
+        $configPaths = array(
+            dirname(__DIR__) . '/config.php',
+            __DIR__ . '/config.php',
+        );
+
+        $found = false;
+        foreach ($configPaths as $configPath) {
+            if (!is_readable($configPath)) {
+                continue;
+            }
+            $found = true;
+
+            $loaded = require $configPath;
+            if (is_array($loaded)) {
+                // Drop blanks and the placeholders shipped in config.php
+                foreach ($loaded as $k => $v) {
+                    $v = trim($v);
+                    if ($v !== '' && strpos($v, 'LIM_INN_') !== 0) {
+                        $config[$k] = $v;
+                    }
+                }
+            }
+            break;
+        }
+
+        if (!$found) {
+            error_log('config.php not found in: ' . implode(', ', $configPaths));
+        }
+
+        $envPath = __DIR__ . '/.env';
+        if (is_readable($envPath)) {
+            $parsed = parse_ini_file($envPath, false, INI_SCANNER_RAW);
+            if (is_array($parsed)) {
+                $config = array_merge($parsed, $config);
+            }
         }
     }
 
-    return isset($envFile[$key]) ? trim($envFile[$key]) : '';
+    $value = getenv($key);
+    if ($value !== false && $value !== '') {
+        return trim($value);
+    }
+
+    return isset($config[$key]) ? trim($config[$key]) : '';
 }
 
 if (empty($_POST)) {
