@@ -361,11 +361,8 @@ if (consentManage) {
       applyConsentState();
       box.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } else {
-      const note = document.querySelector('#consent-manage-note');
-      if (note) {
-        note.textContent = 'Personvernvalget er nullstilt. Du blir spurt på nytt ' +
-          'neste gang du bruker kontaktskjemaet.';
-      }
+      // Valget hører hjemme ved skjemaet, så vi sender besøkende dit
+      window.location.href = 'kontaktskjema.html';
     }
   });
 }

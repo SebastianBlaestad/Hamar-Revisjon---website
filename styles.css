@@ -976,7 +976,8 @@ a {
   margin-top: 6px;
 }
 
-/* Angre-lenke i bunnteksten, på alle sider */
+/* Angre-lenke i bunnteksten, på alle sider. Skal se ut som lenkene rundt seg,
+   så den arver farge og understrekes bare ved hover slik de gjør. */
 .footer__consent {
   font-family: inherit;
   font-size: inherit;
@@ -984,21 +985,13 @@ a {
   background: none;
   border: 0;
   padding: 0;
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
-  opacity: 0.85;
 }
 
 .footer__consent:hover {
-  opacity: 1;
-}
-
-.footer__consent-note:not(:empty) {
-  display: block;
-  width: 100%;
-  margin-top: 8px;
-  font-size: 0.85rem;
-  opacity: 0.85;
+  color: #fff;
+  text-decoration: underline;
 }
 
 @media (max-width: 900px) {
