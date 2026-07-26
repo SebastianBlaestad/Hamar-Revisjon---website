@@ -209,10 +209,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $curlError   = curl_errno($ch) ? curl_error($ch) : '';
     curl_close($ch);
 
-    // Brevo answers 201 Created on success
+    // Brevo answers 201 Created on success. The log lives outside the webroot,
+    // next to config.php, so it can neither be fetched over HTTP nor end up in
+    // git - no .gitignore entry needed to keep it out.
     if ($httpCode === 201) {
         error_log(date('Y-m-d H:i:s') . " Brevo OK to=$to from=$from\n",
-            3, dirname(__FILE__) . '/response_log.txt');
+            3, dirname(dirname(__FILE__)) . '/response_log.txt');
         echo json_encode(array("success" => true));
         exit();
     }
